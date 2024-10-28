@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container form-container">
+        <div class="content" style="margin: 50px 0px;">
+            <div class="text-and-supporting-text">
+                <h1 class="text">Sign Up</h1>
+                <h1 class="supporting-text">Welcome to Polyglotte</h1>
+            </div>
+            <div class="content2">
+                <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                    <div class="input-with-label">
+                        <label class="form-label">First Name*</label>
+                        {{ form.first_name(class="form-control fc") }}
+                    </div>
+                    <div class="input-with-label">
+                        <label class="form-label">Last Name*</label>
+                        {{ form.last_name(class="form-control fc") }}
+                    </div>
+                    <div class="input-with-label">
+                        <label class="form-label">Email*</label>
+                         {% if form.email.errors %}
+                            {{ form.email(class="form-control fc is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control fc") }}
+                        {% endif %}
+                    </div>
+                    <div class="input-with-label">
+                        <label class="form-label">Username*</label>
+                        {% if form.username.errors %}
+                        {{ form.username(class="form-control fc is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control fc") }}
+                    {% endif %}
+                    </div>
+                    <div class="input-with-label">
+                        <label class="form-label">Password*</label>
+                        {{ form.password(class="form-control fc") }}
+                    </div>
+                    <div class="input-with-label">
+                        <label class="form-label">Confirm Password*</label>
+                        {{ form.confirm_password(class="form-control fc") }}
+                    </div>
+                    <div class="actions">
+                         {{ form.submit(class="btn btn-primary submit") }}
+                    </div>
+                </form>
+            </div>
+            <div class="text-center" style="margin-top: 10px;">
+                <p>Already have an account?</p><a href="{{ url_for('login') }}">Login</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,12 +1,14 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from .models import BlogPost, User
 
 
 # Create your views here.
-def home(request):
-    return render(request, 'home.html')
+def index(request):
+    posts = BlogPost.objects.order_by('-created_at')
+    return render(request, 'index.html', {'posts': posts})
 
 
-# def todos(request):
-#     items = TodoItem.objects.all()
-#     return render(request, 'todos.html', {"todos": items})
+def show_post(request, post_id):
+    post = get_object_or_404(BlogPost, id=post_id)  # This will correctly fetch the post using UUID
+    return render(request, 'show_post.html', {'post': post})
+
