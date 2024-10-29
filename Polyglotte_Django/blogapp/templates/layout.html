@@ -62,21 +62,21 @@
 <body>
     <nav class="navbar navbar-expand-md sticky-top py-3 navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
                 <img class="rounded img-fluid w-100 fit-cover" src="../static/img/design3.png" style="height: 75px"/>
                 <span style="font-family: ABeeZee, sans-serif;color: rgb(255,255,255);">Polyglotte</span></a><i class="icon ion-navicon-round navbar-toggler" id="nav-toggle" data-bs-toggle="collapse" data-bs-target="#navcol-3" style="font-size:30px;color:rgb(255,255,255);"></i>
             <div class="collapse navbar-collapse" id="navcol-3">
                 <ul class="navbar-nav d-flex align-items-center mx-auto" style="color:rgb(255,255,255);transform:translate(0px);">
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);font-size: 16px;font-family: ABeeZee, sans-serif;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}" style="color: rgb(255,255,255);font-size: 16px;font-family: ABeeZee, sans-serif;">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);font-size: 16px;font-family: ABeeZee, sans-serif;">Our Story</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" style="color: rgb(255,255,255);font-size: 16px;font-family: ABeeZee, sans-serif;">New Post</a></li>
                     <li class="nav-item"><div id="google_translate_element"></div></li>
 
                 </ul>
                 <div class="d-flex justify-content-center">
-                {% if current_user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Account</button></a>
-                    <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Logout</button></a>
+                    <a href="{% url 'logout' %}"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Logout</button></a>
                 {% else %}
                     <a href="{% url 'login' %}"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Login</button></a>
                     <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Sign Up</button></a>
@@ -88,7 +88,7 @@
 
     {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger mb-0" role="alert">
                     {{ message }}
                 </div>
             {% endfor %}
