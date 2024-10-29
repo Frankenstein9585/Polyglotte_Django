@@ -78,13 +78,21 @@
                     <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Account</button></a>
                     <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Logout</button></a>
                 {% else %}
-                    <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Login</button></a>
+                    <a href="{% url 'login' %}"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Login</button></a>
                     <a href="#"><button class="btn btn-primary" type="button" style="margin-right: 5px;font-family: ABeeZee, sans-serif;">Sign Up</button></a>
                 {% endif %}
                 </div>
             </div>
         </div>
     </nav>
+
+    {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
 {% block content %} {% endblock content %}
 <footer class="text-center py-4">
         <div class="container">

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container form-container">
+        <div class="content" style="margin: 50px 0px;">
+            <div class="text-and-supporting-text">
+                <h1 class="text">Login</h1>
+                <h1 class="supporting-text">Welcome Back!</h1>
+            </div>
+            <div class="content2">
+                <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+  <!-- Email input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+      <label class="form-label" for="username">Username</label>
+      <input type="text" name="username" class="form-control" />
+  </div>
+
+  <!-- Password input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+      <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" class="form-control" />
+  </div>
+
+  <!-- 2 column grid layout for inline styling -->
+<!--  <div class="row mb-4">-->
+<!--    <div class="col d-flex justify-content-center">-->
+<!--      &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--      <div class="form-check">-->
+<!--        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />-->
+<!--        <label class="form-check-label" for="form2Example31"> Remember me </label>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="col">-->
+<!--      &lt;!&ndash; Simple link &ndash;&gt;-->
+<!--      <a href="#!">Forgot password?</a>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <!-- Submit button -->
+  <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Sign in</button>
+
+  <!-- Register buttons -->
+<!--  <div class="text-center">-->
+<!--    <p>Not a member? <a href="#!">Register</a></p>-->
+<!--    <p>or sign up with:</p>-->
+<!--    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
+<!--      <i class="fab fa-facebook-f"></i>-->
+<!--    </button>-->
+
+<!--    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
+<!--      <i class="fab fa-google"></i>-->
+<!--    </button>-->
+
+<!--    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
+<!--      <i class="fab fa-twitter"></i>-->
+<!--    </button>-->
+
+<!--    <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">-->
+<!--      <i class="fab fa-github"></i>-->
+<!--    </button>-->
+<!--  </div>-->
+</form>
+            </div>
+            <div class="text-center" style="margin-top: 10px;">
+                <p>Don't have an account?</p><a href="#">Sign Up</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
