@@ -58,14 +58,16 @@ def user_account(request):
                 messages.success(request, 'Your account has successfully been updated')
                 return redirect('account')
         elif 'bio' in request.POST:
-            bio_form = BioForm(request.POST)
+            bio_form = BioForm(request.POST, instance=user)
             if bio_form.is_valid():
-                user.bio = bio_form.cleaned_data['bio']
-                user.save()
+                # print(bio_form.data)
+                # user.bio = bio_form.cleaned_data['bio']
+                # user.save()
+                bio_form.save()
                 messages.success(request, 'Your bio has successfully been updated')
                 return redirect('account')
 
-    bio_form.fields['bio'].initial = user.bio
+    # bio_form.fields['bio'].initial = user.bio
 
     posts = BlogPost.objects.filter(user=user).order_by('-created_at')
 
