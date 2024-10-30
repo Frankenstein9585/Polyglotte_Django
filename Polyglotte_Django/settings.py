@@ -29,7 +29,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://polyglotte-5a70da1573aa.herokuapp.com']
+ALLOWED_HOSTS = ['polyglotte-5a70da1573aa.herokuapp.com']
 
 # Application definition
 
