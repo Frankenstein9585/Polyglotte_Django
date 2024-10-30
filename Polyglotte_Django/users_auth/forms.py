@@ -15,5 +15,9 @@ class UpdateForm(forms.ModelForm):
         fields = ('first_name', 'last_name', 'username', 'email')
 
 
-class BioForm(forms.Form):
+class BioForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('bio',)
+
     bio = forms.CharField(widget=forms.Textarea, required=False)
