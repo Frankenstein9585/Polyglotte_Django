@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin, UserManager
 from django.utils import timezone
@@ -65,7 +66,7 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=128)
     last_login = models.DateTimeField(null=True, blank=True)
     picture = models.CharField(max_length=128, default='default.jpg')
-    bio = models.TextField(blank=True, null=True)
+    bio = models.TextField(null=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
 
@@ -88,7 +89,7 @@ class BlogPost(BaseModel):
     """Blog Post class for all blog posts"""
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = RichTextField()
     subheading = models.TextField(blank=True, null=True)
     picture = models.CharField(max_length=256, default='default_post.jpg')
     category = models.CharField(max_length=50, default='Miscellaneous')
